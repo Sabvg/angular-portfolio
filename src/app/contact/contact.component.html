@@ -1,0 +1,94 @@
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+        <div class="section-title">
+            <h2>Contact</h2>
+        </div>
+        <div class="row mt-1">
+            <div class="col-lg-4">
+                <div class="info">
+                    <div class="address">
+                        <i class="icofont-google-map"></i>
+                        <h4>Location:</h4>
+                        <p>Barcelona, 08014</p>
+                    </div>
+
+                    <div class="email">
+                        <i class="icofont-envelope"></i>
+                        <h4>Email:</h4>
+                        <p>sabela.vazquez.gago@gmail.com</p>
+                    </div>
+
+                    <div class="phone">
+                        <i class="icofont-phone"></i>
+                        <h4>Call:</h4>
+                        <p>+34 609830107</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8 mt-5 mt-lg-0">
+
+                <form autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="guardar()">
+                    <div class="form-row">
+                        <div class="col-md-6 form-group">
+                            <input type="text" class="form-control" formControlName="nombre" placeholder="Tu nombre">
+
+                            <span class="form-text text-danger" *ngIf="campoEsValido('nombre')">Debes completar el campo Nombre</span>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <input type="text" class="form-control" formControlName="email" placeholder="Tu email">
+
+                            <span class="form-text text-danger" *ngIf="campoEsValido('email')">
+                                Debes completar el campo Email con un formato válido.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Asunto" formControlName="asunto">
+                        <span class="form-text text-danger" *ngIf="campoEsValido('asunto')">
+                            Debes indicar un asunto para tu mensaje de 4 caracteres como mínimo.
+                        </span>
+
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="5" placeholder="Mensaje" formControlName="mensaje"></textarea>
+                        <span class="form-text text-danger" *ngIf="campoEsValido('mensaje')">
+                                Debes escribir un mensaje de 500 caracteres como máximo.
+                            </span>
+
+                    </div>
+                    <div class="mb-3">
+                        <div class="loading">Loading</div>
+                        <div class="error-message"></div>
+                        <div class="sent-message">Your message has been sent. Thank you!</div>
+                    </div>
+                    <div class="text-center">
+                        <button (click)="guardar()">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- <div class="row">
+    <div class="col">
+
+        <span>Valid</span>
+        <pre>{{ miFormulario.valid }}</pre>
+
+        <span>Pristine</span>
+        <pre>{{ miFormulario.pristine }}</pre>
+
+        <span>Touched</span>
+        <pre>{{ miFormulario.touched }}</pre>
+
+        <span>Value</span>
+        <pre>{{ miFormulario.value | json }}</pre>
+
+        <span>Email</span>
+        <pre>{{ miFormulario.controls.email.errors | json }}</pre>
+
+    </div>
+</div> -->
